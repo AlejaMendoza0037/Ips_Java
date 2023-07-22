@@ -19,4 +19,13 @@ public class Direccion {
         this.calle=direccion.calle();
         this.ciudad=direccion.ciudad();
     }
+
+
+    public Direccion actualizarDatos(DatosDireccion direccion){
+        this.calle=direccion.calle();
+        this.ciudad=direccion.ciudad();
+        return this;
+
+
+    }
 }

@@ -18,6 +18,7 @@ import med.voll.api.direccion.Direccion;
 @Table(name="medicos")
 @Entity(name="Medico")
 @Getter
+//String
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of="id")
@@ -28,22 +29,57 @@ public class Medico {
 
     private long id;
     private String nombre;
+    private String apellido;
     private String documento;
+    private Boolean activo;
     @Enumerated(EnumType.STRING)
     private Especialidad especialidad;
     @Embedded
     private Direccion direccion;
 
+    
+
 
     public Medico(DatosRegistroMedico datosRegistroMedico){
         //mapeo 
+        this.activo=true;
         this.nombre=datosRegistroMedico.nombre();
+        this.apellido=datosRegistroMedico.apellido();
         this.documento=datosRegistroMedico.documento();
         this.especialidad=datosRegistroMedico.especialidad();
         this.direccion=new Direccion(datosRegistroMedico.direccion());
 
 
     }
+
+
+    public void actualizarDatos(DatosActualizarMedico datosActualizarMedico) {
+        if(datosActualizarMedico.nombre() !=null){
+            this.nombre=datosActualizarMedico.nombre();
+
+        }   if(datosActualizarMedico.apellido() !=null){
+            this.nombre=datosActualizarMedico.apellido();
+
+        } if(datosActualizarMedico.documento() !=null){
+            this.nombre=datosActualizarMedico.documento();
+
+        } if(datosActualizarMedico.documento() !=null){
+            this.nombre=datosActualizarMedico.documento();
+
+        } if(datosActualizarMedico.direccion() !=null){
+             this.direccion=direccion.actualizarDatos(datosActualizarMedico.direccion());
+
+        }       
+       
+    }
+
+
+    public void desactivarMedico() {
+        this.activo=false;
+    }
+
+
+  
     
 
 }

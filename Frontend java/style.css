@@ -1,0 +1,21 @@
+body{
+    background-color: #f7f6f6;
+    background: linear-gradient(#e9dcdc, #888888);
+
+}
+table thead{
+    background-color: #0a4f70;
+    color: white;
+
+}
+footer{
+    background-color: rgb(145, 145, 165);
+    text-align: center;
+}
+
+.imgMedico{
+    width: 28%;
+    margin-top: 20px;
+    margin-left: 450px;
+
+}
